@@ -1,7 +1,9 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
+        freopen("mixmilk.in", "r", stdin);
+        freopen("mixmilk.out", "w", stdout);
 	int capacity[3], milk[3];
 	for (int i = 0; i < 3; i++)
 		cin >> capacity[i] >> milk[i];
