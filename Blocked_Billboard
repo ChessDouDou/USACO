@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    freopen("billboard.in", "r", stdin);
+    freopen("billboard.out", "w", stdout);
+    int x1, y1, x2, y2, x3, y3, x4, y4, x5, y5, x6, y6;
+    cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3 >> x4 >> y4 >> x5 >> y5 >> x6 >> y6;
+    bool view [2001][2001];
+    for (int i = 0; i < 2001; i++)
+        for (int j = 0; j < 2001; j++)
+            view[i][j] = false;
+    for (int i = x1; i < x2; i++)
+        for (int j = y1; j < y2; j++)
+            view[i + 1000][j + 1000] = true;
+    for (int i = x3; i < x4; i++)
+        for (int j = y3; j < y4; j++)
+            view[i + 1000][j + 1000] = true;
+    for (int i = x5; i < x6; i++)
+        for (int j = y5; j < y6; j++)
+            view[i + 1000][j + 1000] = false;
+    int count = 0;
+    for (int i = 0; i < 2001; i++)
+        for (int j = 0; j < 2001; j++)
+            if (view[i][j])
+                count++;
+    cout << count << endl;
+    return 0;
+}
