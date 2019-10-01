@@ -1,0 +1,23 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    freopen("outofplace.in", "r", stdin);
+    freopen("outofplace.out", "w", stdout);
+    int n;
+    cin >> n;
+    int lineup[n], ordered[n];
+    for (int i = 0; i < n; i++) {
+        cin >> lineup[i];
+        ordered[i] = lineup[i];
+    }
+    sort(ordered, ordered + n);
+    int swaps = -1;
+    for (int i = 0; i < n; i++)
+        if(ordered[i] != lineup[i])
+            swaps++;
+    swaps = max(0, swaps);
+    cout << swaps << endl;
+    return 0;
+}
