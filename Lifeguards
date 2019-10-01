@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    freopen("lifeguards.in", "r", stdin);
+    freopen("lifeguards.out", "w", stdout);
+    int N;
+    cin >> N;
+    int start[N], end[N];
+    for (int i = 0; i < N; i++)
+        cin >> start[i] >> end[i];
+    bool covered[1001];
+    for (int i = 0; i < 1001; i++)
+        covered[i] = false;
+    int ans = 0;
+    for (int i = 0; i < N; i++) {
+        int fire = i;
+        for (int j = 0; j < N; j++) {
+            if (j != fire) {
+                for (int k = start[j]; k < end[j]; k++)
+                    covered[k] = true;
+            }
+        }
+        int count = 0;
+        for (int j = 0; j < 1001; j++) {
+            if (covered[j])
+                count++;
+            covered[j] = false;
+        }
+        if (count > ans)
+            ans = count;
+    }
+    cout << ans << endl;
+    return 0;
+}
